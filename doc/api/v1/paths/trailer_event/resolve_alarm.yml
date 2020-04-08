@@ -1,0 +1,38 @@
+patch:
+  operationId: resolveEventAlarm
+  summary: Resolve overdue event's alarm
+  tags:
+    - trailer_event
+  parameters:
+    - in: path
+      name: id
+      description: ID of the event
+      required: true
+      schema:
+        type: integer
+        format: int64
+
+  responses:
+    200:
+      description: Updated event 
+      content:
+        application/vnd.api+json:
+          schema:
+            properties:
+              data:
+                $ref: '../../../components.yml#/components/schemas/TrailerEvent'
+              included:
+                type: array
+                items:
+                  anyOf:
+                    - $ref: ../../../components.yml#/components/schemas/Logistician
+                    - $ref: ../../../components.yml#/components/schemas/Interaction
+
+    401:
+      $ref: '../../../responses/unauthorized.yml'
+    403:
+      description: Forbidden
+    404:
+      $ref: ../../../responses/not_found.yml
+    422:
+      $ref: ../../../responses/unprocessable_entity.yml

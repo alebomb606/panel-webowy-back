@@ -1,0 +1,63 @@
+get:
+  operationId: getTrailerEvents
+  summary: List trailer events for specific trailer
+  tags:
+    - trailers
+  parameters:
+    - $ref: '../../../components.yml#/components/parameters/pageNumberParam'
+    - $ref: '../../../components.yml#/components/parameters/pageSizeParam'
+    - in: path
+      name: id
+      description: ID of trailer
+      required: true
+      schema:
+        type: integer
+        format: int64
+    - in: query
+      name: filter[date_from]
+      required: false
+      description: iso8601 formatted datetime string
+      schema:
+        format: date-time
+        type: string
+    - in: query
+      name: filter[date_to]
+      required: false
+      description: iso8601 formatted datetime string
+      schema:
+        type: string
+        format: date-time
+    - in: query
+      name: filter[kinds]
+      required: false
+      description: comma-separated event kinds to filter
+      schema:
+        type: array
+        items:
+          type: string
+          enum: [start_loading, end_loading, alarm, alarm_silenced, alarm_off, armed, disarmed, warning, emergency_call, quiet_alarm, alarm_resolved, truck_disconnected, truck_connected, shutdown_pending, shutdown_immediate, truck_battery_low, truck_battery_normal, engine_off, engine_on, parking_on, parking_off]
+
+  responses:
+    200:
+      description: List of events
+      content:
+        application/vnd.api+json:
+          schema:
+            properties:
+              data:
+                $ref: '../../../components.yml#/components/schemas/TrailerEvents'
+              included:
+                type: array
+                items:
+                  oneOf:
+                    - $ref: ../../../components.yml#/components/schemas/Trailer
+                    - $ref: ../../../components.yml#/components/schemas/RouteLog
+                    - $ref: ../../../components.yml#/components/schemas/Logistician
+                    - $ref: ../../../components.yml#/components/schemas/TrailerEvent
+
+    401:
+      $ref: '../../../responses/unauthorized.yml'
+    403:
+      description: Forbidden
+    404:
+      $ref: ../../../responses/not_found.yml

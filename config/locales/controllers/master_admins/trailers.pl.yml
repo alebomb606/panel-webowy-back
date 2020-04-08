@@ -1,0 +1,10 @@
+pl:
+  master_admins:
+    trailers:
+      not_found: Naczepa nie mogła zostać odnaleziona!
+      create:
+        success: Utworzono naczepę
+      update:
+        success: Zaktualizowano naczepę
+      destroy:
+        success: Zarchiwizowano naczepę

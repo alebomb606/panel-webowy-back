@@ -1,0 +1,15 @@
+en:
+  master_admins:    
+    logisticians:
+      form:
+        new_header: New Logistician
+        edit_header: Edit logistician
+        class_name: Logistician
+      index:
+        logisticians: Logisticians
+        email: E-mail
+        name: Name
+        company: Company
+      show:
+        assigned_trailers: Assigned trailers
+        unassigned_trailers: Unassiged trailers

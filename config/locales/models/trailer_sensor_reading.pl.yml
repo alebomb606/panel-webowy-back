@@ -1,0 +1,8 @@
+pl:
+  activerecord:
+    attributes:
+      trailer_sensor_reading:
+        statuses:
+          ok: OK
+          warning: Ostrzeżenie
+          alarm: Alarm

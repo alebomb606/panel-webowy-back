@@ -1,0 +1,11 @@
+pl:
+  activerecord:
+    attributes:
+      person:
+        email: E-mail
+        company: Firma
+        first_name: Imię
+        last_name: Nazwisko
+        phone_number: Numer telefonu
+        extra_phone_number: Dodatkowy numer telefonu
+        avatar: Avatar

@@ -1,0 +1,10 @@
+# run: At minute 5 past every 4th hour from 0 through 23.
+check_trailer_data_usage_report_job:
+  cron: '05 0-23/4 * * *'
+  class: "TrailerDataUsage::ParseReportWorker"
+  queue: critical
+# run: At every minute from 0 through 59.
+continuous_request_for_media_job:
+  cron: '0-59 * * * *'
+  class: "Media::ContinuousRequestWorker"
+  queue: default

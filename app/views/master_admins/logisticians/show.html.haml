@@ -1,0 +1,28 @@
+%section.section
+  %h1.title= logistician.full_name
+
+  - if logistician.person.avatar.present?
+    %figure.image.is-64x64
+      = image_tag(logistician.person.avatar.url, class: 'is-rounded')
+
+%section.section
+  .container
+    %h1.title= t('.assigned_trailers')
+    = render 'master_admins/trailers/table', trailers: assigned_trailers do |trailer|
+      %td= link_to t('.actions.edit'),
+        edit_admin_access_permission_path(trailer.access_permission_id(logistician: logistician),
+        params: { logistician_id: logistician.id })
+      %td= link_to t('.actions.unassign'),
+        unassign_trailer_admin_logistician_path(logistician.id,
+        params: { trailer_id: trailer.id }),
+        method: :patch
+
+%section.section
+  .container
+    %h1.title= t('.unassigned_trailers')
+    = render 'master_admins/trailers/table', trailers: unassigned_trailers do |trailer|
+      %td= link_to t('.actions.grant_permissions'),
+        new_admin_trailer_access_permission_path(trailer.id,
+        params: { logistician_id: logistician.id })
+
+

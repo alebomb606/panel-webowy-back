@@ -1,0 +1,12 @@
+en:
+  master_admins:
+    logisticians:
+      not_found: Logistician could not be found!
+      create:
+        success: Logistician has been created
+      update:
+        success: Logistician has been updated
+      destroy:
+        success: Logistician has been archived
+      unassign_trailer:
+        success: Trailer has been unassigned

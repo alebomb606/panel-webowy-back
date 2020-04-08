@@ -1,0 +1,16 @@
+.container
+  .columns.columns-container.is-centered
+    %h1.title= t('.forgot_your_password')
+  .columns.columns-container.is-centered
+    = render 'layouts/partials/flash'
+  .columns.columns-container.is-centered.is-multiline
+    .is-3.is-offset-3
+      = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+        .field
+          %p.control.has-icons-left
+            = f.email_field :email, autofocus: true, autocomplete: 'email', placeholder: 'Email', class: 'input'
+            %span.icon.is-small.is-left
+              %i.fas.fa-envelope
+
+        = f.submit t('.send_me_reset_password_instructions'), class: 'button is-primary'
+      = render 'devise/shared/links'

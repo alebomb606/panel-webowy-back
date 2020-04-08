@@ -1,0 +1,21 @@
+operationId: getLogistician
+summary: Get logged in logistician
+tags:
+  - logistician
+responses:
+  200:
+    description: OK
+    content:
+      application/vnd.api+json:
+        schema:
+          properties:
+            data:
+              $ref: '../../../components.yml#/components/schemas/Logistician'
+            included:
+              type: array
+              items:
+                anyOf:
+                  - $ref: ../../../components.yml#/components/schemas/TrailerAccessPermission
+
+  401:
+    $ref: '../../../responses/unauthorized.yml'

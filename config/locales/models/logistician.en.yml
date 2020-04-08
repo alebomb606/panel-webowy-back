@@ -1,0 +1,9 @@
+en:
+  activerecord:
+    attributes:
+      logistician:
+        email: E-mail
+        company: Company
+        first_name: First name
+        last_name: Last name
+        phone_number: Phone number

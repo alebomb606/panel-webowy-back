@@ -1,0 +1,10 @@
+pl:
+  master_admins:
+    companies:
+      not_found: Firma nie mogła zostać odnaleziona!
+      create:
+        success: Utworzono firmę
+      update:
+        success: Zaktualizowano firmę
+      destroy:
+        success: Zarchiwizowano firmę

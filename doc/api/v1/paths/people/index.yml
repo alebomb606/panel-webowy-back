@@ -1,0 +1,29 @@
+get:
+  operationId: getPeople
+  summary: List and filter people from the current company
+  tags:
+    - people
+  parameters:
+    - $ref: '../../../components.yml#/components/parameters/pageNumberParam'
+    - $ref: '../../../components.yml#/components/parameters/pageSizeParam'
+    - in: query
+      name: filter[keyword]
+      required: false
+      description: 'Keyword to be matched in either: first name, last name, email, phone number or extra phone number. Leave empty to get all the people from the company.'
+      schema:
+        type: string
+
+  responses:
+    200:
+      description: List of people
+      content:
+        application/vnd.api+json:
+          schema:
+            properties:
+              data:
+                $ref: '../../../components.yml#/components/schemas/People'
+
+    401:
+      $ref: '../../../responses/unauthorized.yml'
+    422:
+      $ref: ../../../responses/unprocessable_entity.yml

@@ -1,0 +1,9 @@
+%h1.title= t('.trailers')
+%section.section.table-overflow-y
+  = render 'table', trailers: trailers do |trailer|
+    %td= link_to t('form.edit'), edit_admin_trailer_path(trailer.id)
+    %td= link_to t('.trailer_cameras'), admin_trailer_cameras_path(trailer.id)
+    %td= link_to t('.permissions'), admin_trailer_access_permissions_path(trailer.id)
+    %td= link_to t('form.delete'),
+      admin_trailer_path(trailer.id),
+      method: :delete, data: { confirm: t('form.confirm') }

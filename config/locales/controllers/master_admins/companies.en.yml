@@ -1,0 +1,10 @@
+en:
+  master_admins:
+    companies:
+      not_found: Company could not be found!
+      create:
+        success: Company has been created
+      update:
+        success: Company has been updated
+      destroy:
+        success: Company has been archived

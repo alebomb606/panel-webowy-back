@@ -1,0 +1,2 @@
+class TrailerDataUsageSync < ApplicationRecord
+end

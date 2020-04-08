@@ -1,0 +1,58 @@
+post:
+  security: []
+  operationId: signIn
+  summary: Sign in into account
+  tags:
+    - sessions
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            email:
+              type: string
+            password:
+              type: string
+          required:
+            - email
+            - password
+  responses:
+    200:
+      description: Auth object
+      headers:
+        access-token:
+          schema:
+            description: Token for later authentications
+            type: string
+        token-type:
+          schema:
+            description: Token type (Bearer)
+            type: string
+        client:
+          schema:
+            description: Client's ID
+            type: string
+        expiry:
+          schema:
+            description: Token expiry timestamp
+            type: integer
+            format: int64
+        uid:
+          schema:
+            description: Email
+            type: string
+      content:
+        application/json:
+          schema:
+            properties:
+              data:
+                $ref: ../../../components.yml#/components/schemas/Auth
+              included:
+                type: array
+                items:
+                  anyOf:
+                    - $ref: ../../../components.yml#/components/schemas/Logistician
+                    - $ref: ../../../components.yml#/components/schemas/TrailerAccessPermission
+    401:
+      $ref: '../../../responses/unauthorized.yml'

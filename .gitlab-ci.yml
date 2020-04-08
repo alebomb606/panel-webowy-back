@@ -1,0 +1,111 @@
+image: "binarapps/ruby-rvm:2.6.5"
+
+variables:
+  DOCKER_DRIVER: overlay2
+  POSTGRES_DB: test
+  POSTGRES_USER: test
+  POSTGRES_PASSWORD: test
+  # tutaj mozna ustalic zmienne srodowiskowe obecne na kazdym etapie testow
+  RAILS_ENV: test
+
+stages:
+  - security-check
+  - lint
+  - test
+  - deploy
+
+before_script:
+  - rvm current
+  - bundle install --jobs $(nproc)  --path /cache --without production
+  - mv config/database.ci.yml config/database.yml
+  - mv config/secrets.example.yml config/secrets.yml
+
+brakeman:
+  stage: security-check
+  script:
+    - bundle exec brakeman
+
+# validate-docs:
+#   stage: test
+#   image: "binarapps/node:9"
+#   before_script:
+#     - npm install -g swagger-cli
+#   script:
+#     - swagger-cli validate ./doc/api_doc.yml
+
+recent_ruby:
+  stage: security-check
+  script:
+    - bundle exec recent_ruby --version-string $(cat .ruby-version)
+
+bundle_audit:
+  stage: security-check
+  script:
+    - bundle exec bundle-audit
+
+rspec:
+  stage: test
+  services:
+    - postgres:latest
+  script:
+    - bundle exec rake db:migrate
+    - bundle exec rspec
+
+rubocop:
+  stage: lint
+  script:
+    - bundle exec rubocop
+
+haml-lint:
+  stage: lint
+  script:
+    - bundle exec haml-lint
+
+# pages:
+#   image: "binarapps/node:9"
+#   stage: deploy
+#   only:
+#     - staging
+#     - master
+#     - setup-swagger
+#   before_script:
+#     - mv public public-app || true ; mkdir -p public/api
+#   script:
+#     - cp ./doc/api_doc.yml public/api/api_doc.yml
+#     - cp -R ./doc/api public/api
+#     - cp ./doc/api_doc.html public/api/index.html
+#   artifacts:
+#     paths:
+#       - public
+
+deploy_to_staging:
+  stage: deploy
+  # tags: [ "deploy" ]
+  environment:
+    name: staging
+    url: http://admin.staging.cargosecurity.online
+  only:
+    - staging
+  script:
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+    - eval $(ssh-agent -s)
+    - echo "$STAGING_SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - 'mkdir -p ~/.ssh && chmod 700 ~/.ssh'
+    - echo "$STAGING_SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+    - bundle exec cap staging deploy
+
+deploy_to_production:
+  stage: deploy
+  # tags: [ "deploy" ]
+  environment:
+    name: production
+    url: http://admin.cargosecurity.online
+  only:
+    - master
+  script:
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+    - eval $(ssh-agent -s)
+    - echo "$PRODUCTION_SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - 'mkdir -p ~/.ssh && chmod 700 ~/.ssh'
+    - echo "$PRODUCTION_SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+    - bundle exec cap production deploy

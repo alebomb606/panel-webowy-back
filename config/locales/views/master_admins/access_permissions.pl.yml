@@ -1,0 +1,28 @@
+pl:
+  master_admins:
+    access_permissions:
+      title: Uprawnienia
+      form_header:
+        logistician: Logistyk
+        device_serial_number: Numer seryjny urządzenia
+        registration_number: Numer rejestracyjny
+        phone_number: Numer telefonu
+        company: Firma
+      index:
+        company: Firma
+        device_serial_number: Numer seryjny urządzenia
+        registration_number: Numer rejestracyjny
+        phone_number: Numer telefonu
+        logistician: Logistyk
+        alarm_control: Kontrola alarmu
+        alarm_resolve_control: Kontrola rozwiązywania alarmów
+        system_arm_control: Kontrola uzbrajania systemu
+        load_in_mode_control: Kontrola trybu ładowania
+        photo_download: Pobieranie zdjęć
+        video_download: Pobieranie wideo
+        monitoring_access: Dostęp do monitoringu
+        current_position: Aktualna pozycja
+        route_access: Dostęp do tras
+        sensor_access: Czujnik
+        event_log_access: Dziennik zdarzeń
+        edit: Edycja

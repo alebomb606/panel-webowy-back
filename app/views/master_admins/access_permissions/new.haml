@@ -1,0 +1,12 @@
+= render 'form_header',
+  logistician_presenter: logistician_presenter,
+  trailer_presenter: trailer_presenter
+
+%section.section
+  %h2.subtitle= t('master_admins.access_permissions.title')
+
+  = form_for [:admin, permission] do |f|
+    = render 'form_fields',
+      f: f,
+      logistician_id: logistician_presenter.id,
+      submit_text: t('form.create')

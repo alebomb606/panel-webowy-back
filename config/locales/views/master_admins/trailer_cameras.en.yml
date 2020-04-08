@@ -1,0 +1,14 @@
+en:
+  master_admins:
+    trailer_cameras:
+      back: Back to trailers index
+      not_found: Camera not found
+      success: Success
+      enabled: You confirmed camera installation
+      disabled: You confirmed camera uninstallation
+      title: Cameras
+      index:
+        camera_type: Camera type
+        installed_at: Installed at
+        enable: Enable
+        disable: Disable

@@ -1,0 +1,65 @@
+openapi: '3.0.0'
+info:
+  title: Safeway API
+  description: API documentation for Safeway
+  version: '1.0.0'
+servers:
+  - url: https://safeway.binar.app/api/v1
+security:
+  - accessTokenHeader: []
+  - clientHeader: []
+  - uidHeader: []
+components:
+  securitySchemes:
+    accessTokenHeader:
+      type: apiKey
+      in: header
+      name: access-token
+      description: Obtained access token
+    clientHeader:
+      type: apiKey
+      in: header
+      name: client
+      description: Obtained client ID
+    uidHeader:
+      type: apiKey
+      in: header
+      name: uid
+      description: Obtained UID
+paths:
+  /trailers:
+    $ref: api/v1/paths/trailer/index.yml
+  /trailers/{id}:
+    $ref: api/v1/paths/trailer/show.yml
+  /trailers/{id}/update_status:
+    $ref: api/v1/paths/trailer/update_status.yml
+  /trailers/{id}/read_status:
+    $ref: api/v1/paths/trailer/read_status.yml
+  /trailers/{id}/events:
+    $ref: api/v1/paths/trailer_event/index.yml
+  /trailers/{id}/media:
+    $ref: api/v1/paths/trailer_media/index.yml
+  /trailers/{id}/media/request_media:
+    $ref: api/v1/paths/trailer_media/request.yml
+  /trailers/{id}/route_log:
+    $ref: api/v1/paths/trailer_route_log/index.yml
+  /trailers/{id}/sensors:
+    $ref: api/v1/paths/trailer_sensor/index.yml
+  /events/{id}/resolve_alarm:
+    $ref: api/v1/paths/trailer_event/resolve_alarm.yml
+  /sensors/{id}:
+    $ref: api/v1/paths/trailer_sensor/show.yml
+  /sensors/{id}/events:
+    $ref: api/v1/paths/trailer_sensor/events.yml
+  /sensor_settings/{id}:
+    $ref: api/v1/paths/trailer_sensor_setting/apply.yml
+  /people:
+    $ref: 'api/v1/paths/people/index.yml'
+  /logistician:
+    $ref: 'api/v1/paths/logistician/logistician.yml#/Logistician'
+  /logistician/update_password:
+    $ref: api/v1/paths/logistician/update_password.yml
+  /auth/sign_in:
+    $ref: api/v1/paths/auth/sign_in.yml
+  /auth/sign_out:
+    $ref: api/v1/paths/auth/sign_out.yml

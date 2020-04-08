@@ -1,0 +1,366 @@
+de:
+  devise_token_auth:
+    sessions:
+      not_confirmed: Ihre Konto-Bestätigungsnachricht wurde an gesendet
+        '%{email}'. itte folgen Sie den Anweisungen in der Nachricht
+        um das Konto zu aktivieren.
+      bad_credentials: Nieprawidłowe dane logowania. Proszę spróbować ponownie.
+      not_supported: Falsche Anmeldedaten. Bitte versuche es erneut.
+      user_not_found:  Der Benutzer wurde nicht gefunden oder ist nicht angemeldet.
+    token_validations:
+      invalid: Falsche Anmeldedaten.
+    registrations:
+      missing_confirm_success_url: Kein Parameter'confirm_success_url'.
+      redirect_url_not_allowed: Die Umleitung zu '%{redirect_url}' erfolgt nicht
+        erlaubt.
+      email_already_exists: Ein Konto mit der Adresse '%{email}' ist bereits vorhanden.
+      account_with_uid_destroyed: Das Konto von uid '%{uid}' wurde gelöscht.
+      account_to_destroy_not_found: Das zu löschende Konto wurde nicht gefunden.
+      user_not_found:  Der Benutzer wurde nicht gefunden.
+    passwords:
+      missing_email: Sie müssen eine E-Mail-Adresse eingeben.
+      missing_redirect_url: Keine Rücksendeadresse
+      not_allowed_redirect_url: Die Umleitung zu '%{redirect_url}' erfolgt nicht
+        erlaubt.
+      sended: Die an '%{email}' enthält Anweisungen auf
+        Passwort ändern.
+      user_not_found: Der Benutzer mit der Adresse wurde nicht gefunden '%{email}'.
+      password_not_required: Dieses Konto erfordert kein Passwort. Melden Sie sich mit an
+        Konto '%{provider}'.
+      missing_passwords: Sie müssen alle Felder mit der Bezeichnung 'Passwort'und 'Passwort
+       bestätigen' ausfüllen.
+      successfully_updated: Ihr Passwort wurde aktualisiert.
+  errors:
+    validate_sign_up_params: Bitte geben Sie die entsprechenden Zugangsdaten im Body an
+      Frage.
+    validate_account_update_params: Bitte geben Sie relevante Aktualisierungsdetails an
+      Konten im Hauptteil der Abfrage.
+    not_email: ist keine gültige E-Mail-Adresse
+    messages:
+      already_confirmed: Wurde bereits aktiviert, können Sie sich anmelden
+      confirmation_period_expired: muss innerhalb von %{period}, Bestellung bestätigt werden
+        eine neue Aktivierungsnachricht
+      expired: abgelaufen, senden Sie eine Anfrage für eine neue
+      not_found: nicht gefunden
+      not_locked: er wurde nicht blockiert
+      not_saved:
+        few: "%{resource} wurde aufgrund von %{count} Fehlern nicht gespeichert:"
+        many: "%{resource} wurde aufgrund von %{count} Fehlern nicht gespeichert:"
+        one: "%{resource} Es wurde wegen eines Fehlers nicht gespeichert:"
+        other: "%{resource} wurde aufgrund von %{count} Fehlern nicht gespeichert:"
+    unauthorized: Keine Autorisierung
+    unique?: es muss einzigartig sein
+    email?: es ist nicht richtig
+    valid_permission?: ist keine gültige Erlaubnis
+    not_found: Die Ressource '%{resource}' wurde nicht gefunden
+    bad_credentials: Falsche Anmeldedaten.
+    from_before_to?: date_from muss vor date_to liegen
+    or: oder
+    array?: Es muss ein Array sein
+    empty?: es muss leer sein
+    excludes?: es kann nicht enthalten %{value}
+    excluded_from?:
+      arg:
+        default: 'kann nicht einer von sein: %{list}'
+        range: 'kann nicht einer von sein: %{list_left} - %{list_right}'
+    size?:
+      value:
+        string:
+          arg:
+            range: muss zwischen %{size_left} und %{size_right} Zeichen enthalten
+    exclusion?: 'kann nicht einer von sein: %{list}'
+    eql?: muss gleich sein %{left}
+    not_eql?: kann nicht gleich sein %{left}
+    filled?: es muss ausgefüllt werden
+    format?: ist im falschen Format
+    number?: muss eine Zahl sein
+    odd?: es muss seltsam sein
+    even?: es muss sogar sein
+    gt?: muss größer sein als %{num}
+    gteq?: es muss größer oder gleich sein %{num}
+    hash?: muss vom Typ sein 'hash'
+    bool?: muss vom Typ sein 'boolean'
+    true?: es muss wahr sein
+    false?: es muss falsch sein
+    int?: muss eine ganze Zahl sein
+    float?: muss eine Fließkommazahl sein
+    decimal?: muss eine Dezimalzahl sein
+    date?: Es muss im Format sein 'date'
+    date_time?: Es muss im Format sein 'datetime'
+    time?: Es muss im Format sein 'time'
+    key?: wurde nicht gefunden
+    attr?: ywurde nicht gefunden
+    lt?: es muss kleiner sein als %{num}
+    lteq?: es muss kleiner oder gleich sein %{num}
+    max_size?: Größe kann nicht größer als sein %{num}
+    min_size?: Die Größe kann nicht kleiner sein als %{num}
+    none?: kann nicht definiert werden
+    str?: Es muss ein Text sein
+    type?: muss vom Typ sein %{type}
+    included_in?:
+      arg:
+        default: 'muss eine der folgenden sein: %{list}'
+        range: 'muss eine der folgenden sein: %{list_left} - %{list_right}'
+    attributes:
+      nip: UstIdnr
+      first_name: Vorname
+      last_name: Name
+      phone_number: Telefonnummer
+      city: Stadt
+      postal_code: Postleitzahl
+      email: E-Mail-Adresse
+      latitude: Latitude
+      longitude: Längengrad
+      speed: Geschwindigkeit
+      name: Vorname
+      street: Straße
+      device_serial_number: Die Seriennummer des Geräts
+      registration_number: Registrierungsnummer
+      make: Marke
+      model: Vorbild
+      description: Beschreibung
+      device_installed_at: Datum der Installation
+      selected_features: Optionen
+  devise:
+    mailer:
+      confirmation_instructions:
+        subject: Anweisungen zur Aktivierung des Kontos
+        confirm_link_msg: 'Sie können Ihre E-Mail über den Link unten bestätigen:'
+        confirm_account_link: Bestätigen Sie Ihr Konto
+        action: Bestätigen Sie Ihr Konto
+        greeting: Willkommen %{recipient}!
+        instruction: 'Sie können Ihr Konto über den untenstehenden Link bestätigen:'
+      reset_password_instructions:
+        subject: Anweisungen zum Einrichten eines neuen Passworts
+        request_reset_link_msg: 'Wir haben eine Anfrage zur Änderung Ihres Passworts erhalten. Sie können
+         tun Sie dies über den Link unten: '
+        password_change_link: Passwort ändern
+        ignore_mail_msg: Wenn Sie nicht versucht haben, Ihr Passwort zu ändern, ignorieren Sie es
+          diese E-Mail..
+        no_changes_msg: Ihr Passwort wird nicht geändert, bis Sie ein neues festlegen.
+        action: Ändern Sie Ihr Passwort
+        greeting: Ehre %{recipient}!
+        instruction: Jemand hat eine Kennwortänderung in Ihrem Konto angefordert. Sie können das Passwort ändern
+          indem Sie auf den Link unten gehen.
+        instruction_2: Wenn Sie keine Kennwortänderung angefordert haben, ignorieren Sie dies bitte
+          Nachricht
+        instruction_3: Ihr Passwort wird nicht geändert, es sei denn, Sie geben das Folgende ein
+          Link und stellen Sie keinen neuen ein
+      unlock_instructions:
+        subject: Anweisungen zum Entsperren des Kontos
+        account_lock_msg: Ihr Konto wurde aufgrund zu vieler Nummern gesperrt
+          erfolglose Anmeldeversuche.
+        unlock_link_msg: 'Klicken Sie auf den Link, um Ihr Konto zu entsperren:'
+        unlock_link: Entsperren Sie Ihr Konto
+        action: Entsperren Sie Ihr Konto
+        greeting: Ehre %{recipient}!
+        instruction: 'Klicken Sie auf den Link, um Ihr Konto zu entsperren:'
+        message: Ihr Konto wurde aufgrund zu vieler ungültiger Einträge gesperrt
+          Versuche, sich in sie einzuloggen.
+      email_changed:
+        greeting: Willkommen %{recipient}!
+        message: Wir setzen uns mit Ihnen in Verbindung, um Sie über Ihre Änderung zu informieren
+          E-Mail-Adresse unter %{email}.
+        subject: E-Mail geändert
+      password_change:
+        greeting: Willkommen %{recipient}!
+        message: Wir setzen uns mit Ihnen in Verbindung, um Sie über das Passwort zu informieren
+          geändert
+        subject: Das Passwort wurde geändert.
+    confirmations:
+      confirmed: Ihre E-Mail-Adresse wurde bestätigt.
+      new:
+        resend_confirmation_instructions: Senden Sie die Aktivierungsanweisungen erneut
+      send_instructions: Anweisungen zur Aktivierung Ihres Kontos werden sofort gesendet
+        an die angegebene E-Mail-Adresse
+      send_paranoid_instructions: Wenn Ihre E-Mail-Adresse in unserer Datenbank vorhanden ist,
+       In den nächsten Minuten erhalten Sie Anweisungen zur Aktivierung Ihres Kontos.
+    failure:
+      already_authenticated: Sie sind bereits angemeldet.
+      inactive: Ihr Konto wurde noch nicht aktiviert.
+      invalid: Ungültige Adresse %{authentication_keys} oder Kennwort.
+      last_attempt: Sie haben einen weiteren Versuch, bevor Ihr Konto gesperrt wird.
+      locked: Ihr Konto ist gesperrt.
+      not_found_in_database: Ungültige Adresse %{authentication_keys} oder Kennwort.
+      timeout: Die Sitzung ist abgelaufen, um sich erneut anmelden zu können.
+      unauthenticated: Um fortzufahren, loggen Sie sich ein oder registrieren Sie sich.
+      unconfirmed: Um das Konto weiter zu aktivieren.
+    omniauth_callbacks:
+      failure: Die Anmeldung über das Konto %{kind}wurde mit einem Fehler aufgrund von "%{reason}" beendet.
+      success: Die Anmeldung über das Konto %{kind}  wurde erfolgreich abgeschlossen.
+    passwords:
+      edit:
+        change_my_password: Ändern Sie mein Passwort
+        change_your_password: Ändern Sie Ihr Passwort
+        confirm_new_password: Wiederholen Sie das neue Passwort
+        new_password: neues Passwort
+        password_placeholder: Passwort
+        password_confirmation_placeholder: Bestätigung des Passworts
+      new:
+        forgot_your_password: Hast du dein Passwort vergessen?
+        send_me_reset_password_instructions: Anweisungen zum Ändern des Passworts senden
+      no_token: Sie können diese Seite nur über eine Reset-E-Mail erreichen
+       Passwort. Wenn Sie hierher gekommen sind, vergewissern Sie sich, dass Sie die vollständige Adresse verwenden.
+      send_instructions: Die Anweisungen zum Ändern des Passworts werden sofort an gesendet
+       E-Mail-Adresse angegeben.
+      send_paranoid_instructions: Wenn Ihre E-Mail-Adresse in unserer Datenbank vorhanden ist,
+        Sie erhalten umgehend eine Nachricht mit Anweisungen zur Wiederherstellung des Passworts.
+      updated: Passwort wurde korrekt geändert. Sie wurden automatisch angemeldet.
+      updated_not_active: Ihr Passwort wurde korrekt geändert.
+    registrations:
+      destroyed: Ihr Konto wurde gelöscht.
+      edit:
+        are_you_sure: Bist du sicher?
+        cancel_my_account: Kündigen Sie mein Konto
+        currently_waiting_confirmation_for_email: 'Wir warten derzeit auf Bestätigung
+          von: %{email}'
+        leave_blank_if_you_don_t_want_to_change_it: lassen Sie das Feld leer, wenn Sie nicht möchten
+          Änderungen vornehmen
+        title: Bearbeiten %{resource}
+        unhappy: Unzufrieden
+        update: Aktualisierung
+        we_need_your_current_password_to_confirm_your_changes: wir brauchen deine
+          das aktuelle Passwort, um die Änderungen zu bestätigen
+      new:
+        sign_up: Registrieren
+      signed_up: Willkommen! Die Registrierung war erfolgreich.
+      signed_up_but_inactive: Das Konto wurde erfolgreich erstellt. Bevor Sie gehen
+        Sie müssen sich einloggen, es muss aktiviert sein.
+      signed_up_but_locked: Das Konto wurde erfolgreich erstellt. Das geht aber nicht
+        Melden Sie sich an, weil es blockiert ist.
+      signed_up_but_unconfirmed: Die Nachricht mit dem Aktivierungslink wurde gesendet
+        an die angegebene E-Mail-Adresse. Öffnen Sie den Link, um Ihr Konto zu aktivieren.
+      update_needs_confirmation: Das Konto wurde aktualisiert, aber wir müssen bestätigen
+        neue E-Mail-Adresse. Überprüfen Sie Ihren Posteingang und öffnen Sie den Aktivierungslink.
+        um die Adressänderung abzuschließen.a.
+      updated: Das Konto wurde erfolgreich aktualisiert.
+    sessions:
+      already_signed_out: Erfolgreich protokolliert
+      new:
+        sign_in: Einloggen
+        password_placeholder: Kennwort
+        email_placeholder: Email
+      signed_in: Erfolgreich angemeldet
+      signed_out: Erfolgreich protokolliert
+    shared:
+      links:
+        back: Rückkehr
+        didn_t_receive_confirmation_instructions: Sie haben keine Aktivierungsanweisungen erhalten
+          ein Konto?
+        didn_t_receive_unlock_instructions: Sie haben keine Anweisungen zum Entsperren erhalten
+          ein Konto?
+        forgot_your_password: Hast du dein Passwort vergessen?
+        sign_in: Einloggen
+        sign_in_with_provider: Loggen Sie sich durch %{provider}
+        sign_up: Registrieren
+      minimum_password_length:
+        few: "(minimum %{count} Markierungen)"
+        many: "(minimum %{count} Zeichen)"
+        one: "(minimum %{count} Markierung)"
+        other: "(minimum %{count} Markierung)"
+    unlocks:
+      new:
+        resend_unlock_instructions: Senden Sie Anweisungen zum Entsperren Ihres Kontos
+      send_instructions: Bald sollten Sie eine E-Mail mit Anweisungen zum Entsperren erhalten
+        Ihr Konto
+      send_paranoid_instructions: Wenn Ihr Konto in unserer Datenbank vorhanden ist, erhalten Sie
+        Nur eine E-Mail mit Anweisungen zum Entsperren Ihres Kontos.
+      unlocked: Ihr Konto wurde freigegeben. Melden Sie sich an, um fortzufahren.
+  hello: Willkommen
+  welcome: Willkommen
+  activerecord:
+    attributes:
+      auth:
+        confirmation_sent_at: Datum, an dem die Bestätigung gesendet wurde
+        confirmation_token: Bestätigungstoken
+        confirmed_at: Datum der Bestätigung
+        created_at: Erstellungsdatum
+        current_password: Aktuelles Passwort
+        current_sign_in_at: Datum des aktuellen Logins
+        current_sign_in_ip: Die aktuelle IP-Adresse
+        email: E-Mail-Adresse
+        encrypted_password: Ein verschlüsseltes Passwort
+        failed_attempts: Erfolglose Versuche
+        last_sign_in_at: Datum der letzten Anmeldung
+        last_sign_in_ip: Letzte IP-Adresse
+        locked_at: Datum der Sperrung
+        password: Kennwort
+        password_confirmation: Bestätigung des Passworts
+        remember_created_at: Das Datum, an dem das Login erstellt wurde
+        remember_me: Erinnere dich an mich
+        reset_password_sent_at: Das Datum, an dem die Anforderung zum Zurücksetzen des Passworts gesendet wurde
+        reset_password_token: Token zum Zurücksetzen des Passworts
+        sign_in_count: Die Anzahl der Anmeldungen
+        unconfirmed_email: Unbestätigte E-Mail-Adresse
+        unlock_token: Token freischalten
+        updated_at: Datum des Upgrades
+      logistician:
+        email: E-mail
+        company: Firma
+        first_name: Vorname
+        last_name: Name
+        phone_number: Telefonnummer
+      company:
+        name: Name
+        street: Straße
+        postal_code: Postleitzahl
+        nip: Umsatzsteuer-Identnummer
+        city: Stadt
+        email: E-mail
+      plan:
+        features: Optionen
+        kind: Paket
+        all_features:
+          intelligent_sensors: Intelligente Sensoren
+          current_position: Aktuelle Position
+          event_log: Ereignisprotokoll
+          interior_camera: Innere Kamera
+          telemetry: Telemetriezentrale
+          fuel_tanks_sensors: Sensoren für Kraftstofftank
+          back_camera: Rückfahrkamera
+          rear_door_opening_sensor: Türöffnungssensor hinten
+          basic_loading_control: Grundlaststeuerung
+          advanced_loading_control: Erweiterte Laststeuerung
+          top_left_camera: Linke obere Kamera
+          top_right_camera: Kamera oben rechts
+          bottom_right_camera: Die rechte untere Kamera
+          bottom_left_camera: Die Kamera unten links
+      trailer_access_permission:
+        alarm_control: Alarmsteuerung
+        alarm_arm_control: Alarm-Aktivierungssteuerung
+        load_in_mode_control: Lademodus prüfen
+        photo_download: Fotos herunterladen
+        video_download: Video herunterladen
+        live_photo: Fotos live
+        current_position: Aktuelle Position
+        current_route: Aktuelle Route
+        historical_route: Historische Route
+        sensor_access: Sensor
+        event_log_access: Ereignisprotokoll
+      trailer:
+        device_serial_number: Die Seriennummer des Geräts
+        registration_number: Registrierungsnummer
+        make: Marke
+        model: Vorbild
+        description: Beschreibung
+        device_installed_at: Datum der Installation
+        company: Firma
+    models:
+      auth:
+        few: Benutzer
+        one: Benutzer
+        other: Benutzer
+  form:
+    submit: Einreichen
+    show: Details
+    edit: Ausgabe
+    create: Schaffen
+    update: Aktualisierung
+    delete: Löschen
+    confirm: Bist du sicher?
+  links:
+    root: Startseite
+  languages:
+    pl: polnisch
+    en: englisch
+    de: deutsch

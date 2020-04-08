@@ -1,0 +1,13 @@
+pl:
+  master_admins:
+    drivers:
+      form:
+        new_header: Utwórz kierowcę
+        edit_header: Edytuj kierowcę
+      index:
+        drivers: Kierowcy
+        email: E-mail
+        phone_number: Numer telefonu
+        name: Imię
+        company: Firma
+

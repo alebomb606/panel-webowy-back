@@ -1,0 +1,16 @@
+pl:
+  activerecord:
+    attributes:
+      trailer_access_permission:
+        alarm_control: Kontrola alarmu
+        alarm_resolve_control: Kontrola rozwiązywania alarmów
+        system_arm_control: Kontrola uzbrajania systemu
+        load_in_mode_control: Kontrola trybu ładowania
+        photo_download: Pobieranie zdjęć
+        video_download: Pobieranie wideo
+        monitoring_access: Dostęp do monitoringu
+        current_position: Aktualna pozycja
+        route_access: Dostęp do tras
+        sensor_access: Czujnik
+        event_log_access: Dziennik zdarzeń
+

@@ -1,0 +1,79 @@
+get:
+  operationId: indexTrailerMedia
+  summary: List photos and videos for specific trailer
+  tags:
+    - trailers
+  parameters:
+    - $ref: '../../../components.yml#/components/parameters/pageNumberParam'
+    - $ref: '../../../components.yml#/components/parameters/pageSizeParam'
+    - in: path
+      name: id
+      description: ID of trailer
+      required: true
+      schema:
+        type: integer
+        format: int64
+    - in: query
+      name: filter[date_from]
+      required: false
+      description: iso8601 formatted datetime string (limits the returned media by taken_at)
+      schema:
+        format: date-time
+        type: string
+    - in: query
+      name: filter[date_to]
+      required: false
+      description: iso8601 formatted datetime string (limits the returned media by taken_at)
+      schema:
+        format: date-time
+        type: string
+    - in: query
+      name: filter[cameras]
+      required: false
+      description: comma-separated list of cameras
+      schema:
+        type: array
+        items:
+          type: string
+          enum: [interior, exterior, left_top, right_top, left_bottom, right_bottom]
+    - in: query
+      name: filter[kinds]
+      required: false
+      description: comma-separated list of kinds
+      schema:
+        type: array
+        items:
+          type: string
+          enum: [photo, video]
+    - in: query
+      name: filter[statuses]
+      required: false
+      description: comma-separated list of statuses
+      schema:
+        type: array
+        items:
+          type: string
+          enum: [request, processing, completed]
+  responses:
+    200:
+      description: List of TrailerMedia
+      content:
+        application/vnd.api+json:
+          schema:
+            properties:
+              data:
+                $ref: '../../../components.yml#/components/schemas/TrailerMediaFiles'
+              included:
+                type: array
+                items:
+                  items:
+                    oneOf:
+                      - $ref: ../../../components.yml#/components/schemas/Trailer
+                      - $ref: ../../../components.yml#/components/schemas/Logistician
+
+    401:
+      $ref: '../../../responses/unauthorized.yml'
+    404:
+      $ref: ../../../responses/not_found.yml
+    422:
+      $ref: ../../../responses/unprocessable_entity.yml

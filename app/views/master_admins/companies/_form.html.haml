@@ -1,0 +1,38 @@
+%section.section
+  %h1.title
+    = yield
+
+  = form_for [:admin, company] do |f|
+    .field
+      = f.label :name, class: 'label'
+      .control
+        = f.text_field :name, class: 'input'
+
+    .field
+      = f.label :street, class: 'label'
+      .control
+        = f.text_field :street, class: 'input'
+
+    .field
+      = f.label :postal_code, class: 'label'
+      .control
+        = f.text_field :postal_code, class: 'input'
+
+    .field
+      = f.label :city, class: 'label'
+      .control
+        = f.text_field :city, class: 'input'
+
+    .field
+      = f.label :nip, class: 'label'
+      .control
+        = f.text_field :nip, class: 'input'
+
+    .field
+      = f.label :email, class: 'label'
+      .control
+        = f.email_field :email, class: 'input'
+
+    .field
+      = f.submit t('form.submit'), class: 'button is-primary'
+

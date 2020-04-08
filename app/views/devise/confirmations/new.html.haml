@@ -1,0 +1,22 @@
+.container
+  .columns.columns-container.is-centered
+    %h1.title= t('.resend_confirmation_instructions')
+  .columns.columns-container.is-centered
+    = render 'layouts/partials/flash'
+  .columns.columns-container.is-centered.is-multiline
+    .is-3.is-offset-3
+      = form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
+        = devise_error_messages!
+        .field
+          %p.control.has-icons-left
+            = f.email_field :email,
+              autofocus: true,
+              autocomplete: 'email',
+              value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email),
+              placeholder: 'Email',
+              class: 'input'
+            %span.icon.is-small.is-left
+              %i.fas.fa-envelope
+
+        = f.submit t('.resend_confirmation_instructions'), class: 'button is-primary'
+      = render 'devise/shared/links'

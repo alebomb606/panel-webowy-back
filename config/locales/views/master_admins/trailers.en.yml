@@ -1,0 +1,27 @@
+en:
+  master_admins:
+    trailers:
+      form:
+        new_header: New trailer
+        edit_header: Edit trailer
+        class_name: Trailer
+      index:
+        trailers: Trailers
+      table:
+        device_serial_number: Device Serial Number
+        registration_number: Registration Number
+        phone_number: Phone number
+        make: Make
+        model: Model
+        description: Description
+        installed_at: Installed at
+        company: Company
+        assigned_logisticians: Assigned logisticians
+        logistician: Logistician
+        permissions: Permissions
+        actions:
+          unassign: Unassign
+          edit: Edit
+          grant_permissions: Grant permissions
+          edit_permissions: Edit permissions
+        trailer_cameras: Cameras

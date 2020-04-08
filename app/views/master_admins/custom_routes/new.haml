@@ -1,0 +1,19 @@
+%section.section
+  %h1.title
+    = t('.title')
+
+  = form_tag admin_custom_routes_path, method: :post, multipart: true do
+    .field
+      = label_tag :file, t('.file'), class: 'label'
+      .control
+        = file_field_tag :file, class: 'input', accept: '.gpx'
+    .field
+      = label_tag :trailer, t('.trailer'), class: 'label'
+      .control
+        .select
+          = select_tag :trailer_id, options_for_select(trailer_options), class: 'input'
+    .field
+      .control
+        = submit_tag t('form.submit'), class: 'button is-primary'
+
+

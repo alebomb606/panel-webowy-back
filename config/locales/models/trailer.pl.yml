@@ -1,0 +1,15 @@
+pl:
+  activerecord:
+    attributes:
+      trailer:
+        device_serial_number: Numer seryjny urządzenia
+        registration_number: Numer rejestracyjny
+        phone_number: Numer telefonu
+        make: Marka
+        model: Model
+        description: Opis
+        device_installed_at: Data instalacji
+        company: Firma
+        banana_pi_token: Token websocket urządzenia
+        spedition_company: Firma spedycyjna
+        transport_company: Firma transportowa

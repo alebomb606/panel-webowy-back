@@ -1,0 +1,27 @@
+en:
+  master_admins:
+    access_permissions:
+      title: Permissions
+      form_header:
+        logistician: Logistician
+        device_serial_number: Device serial number
+        registration_number: Registration number
+        phone_number: Phone number
+        company: Company
+      index:
+        company: Company
+        device_serial_number: Device serial number
+        registration_number: Registation number
+        phone_number: Phone number
+        logistician: Logistician
+        alarm_control: Alarm control
+        system_arm_control: System arm control
+        load_in_mode_control: Load in mode control
+        photo_download: Photo download
+        video_download: Video download
+        monitoring_access: Monitoring access
+        current_position: Current position
+        route_access: Route access
+        sensor_access: Sensor
+        event_log_access: Event log
+        edit: Edit

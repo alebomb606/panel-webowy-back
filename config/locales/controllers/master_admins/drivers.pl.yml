@@ -1,0 +1,10 @@
+pl:
+  master_admins:
+    drivers:
+      not_found: Nie znaleziono kierowcy
+      create:
+        success: Utworzono kierowcę
+      update:
+        success: Zaktualizowano kierowcę
+      destroy:
+        success: Usunięto kierowcę

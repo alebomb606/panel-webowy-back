@@ -1,0 +1,21 @@
+en:
+  activerecord:
+    attributes:
+      plan:
+        features: Options
+        kind: Kind
+        all_features:
+          intelligent_sensors: Intelligent sensors
+          current_position: Current position
+          event_log: Event log
+          interior_camera: Interior camera
+          telemetry: Telemetry
+          fuel_tanks_sensors: Fuel tanks sensors
+          back_camera: Back camera
+          rear_door_opening_sensor: Rear door opening sensor
+          basic_loading_control: Basic loading control
+          advanced_loading_control: Advanced loading control
+          top_left_camera: Top left camera
+          top_right_camera: Top right camera
+          bottom_right_camera: Bottom right camera
+          bottom_left_camera: Bottom left camera

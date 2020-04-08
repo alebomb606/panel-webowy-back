@@ -1,0 +1,12 @@
+pl:
+  master_admins:
+    logisticians:
+      not_found: Logistyk nie mógł zostać odnaleziony!
+      create:
+        success: Utworzono logistyka
+      update:
+        success: Zaktualizowano logistyka
+      destroy:
+        success: Zarchiwizowano logistyka
+      unassign_trailer:
+        success: Cofnięto przypisanie naczepy

@@ -1,0 +1,10 @@
+delete:
+  operationId: signOut
+  summary: Sign out of account
+  tags:
+    - sessions
+  responses:
+    200:
+      description: Logged out
+    404:
+      $ref: '../../../responses/not_found.yml'

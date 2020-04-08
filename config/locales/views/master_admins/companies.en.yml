@@ -1,0 +1,18 @@
+en:
+  master_admins:
+    companies:
+      form:
+        new_header: New company
+        edit_header: Edit company
+        header: Company
+      index:
+        companies: Companies
+        logisticians: Logisticians
+        name: Name
+        address: Address
+        email: E-mail
+        nip: NIP
+      logisticians:
+        logisticians: Logisticians
+        email: E-mail
+        name: Name

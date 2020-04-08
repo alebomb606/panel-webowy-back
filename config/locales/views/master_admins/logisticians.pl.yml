@@ -1,0 +1,15 @@
+pl:
+  master_admins:
+    logisticians:
+      form:
+        new_header: Utwórz logistyka
+        edit_header: Edytuj logistyka
+        class_name: Logistyk
+      index:
+        logisticians: Logistycy
+        email: E-mail
+        name: Imię
+        company: Firma
+      show:
+        assigned_trailers: Przypisane naczepy
+        unassigned_trailers: Nieprzypisane naczepy

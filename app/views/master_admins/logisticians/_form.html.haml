@@ -1,0 +1,48 @@
+%section.section
+  %h1.title
+    = yield
+
+  = form_for [:admin, logistician] do |f|
+    = f.fields_for :person, logistician.person || logistician.build_person do |pf|
+      .field
+        = pf.label :email, class: 'label'
+        .control
+          = pf.email_field :email, class: 'input'
+      .field
+        = pf.label :first_name, class: 'label'
+        .control
+          = pf.text_field :first_name, class: 'input'
+      .field
+        = pf.label :last_name, class: 'label'
+        .control
+          = pf.text_field :last_name, class: 'input'
+      .field
+        = pf.label :phone_number, class: 'label'
+        .control
+          = pf.text_field :phone_number, class: 'input'
+      .field
+        = pf.label :extra_phone_number, class: 'label'
+        .control
+          = pf.text_field :extra_phone_number, class: 'input'
+      .field
+        = pf.label :avatar, class: 'label'
+        .control
+          - if pf.object.avatar.present?
+            %figure.image.is-64x64
+              = image_tag(pf.object.avatar.url, class: 'is-rounded')
+          = pf.file_field :avatar, class: 'input', accept: '.jpg, .jpeg, .png'
+      .field
+        = pf.label :company, class: 'label'
+        .control
+          .select
+            = pf.select :company_id, companies
+
+    .field
+      = f.label :language, class: 'label'
+      .control
+        .select
+          = f.select :preferred_locale, locales_to_select(Logistician::LOCALES)
+
+    .field
+      .control
+        = f.submit t('form.submit'), class: 'button is-primary'

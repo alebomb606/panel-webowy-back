@@ -1,0 +1,15 @@
+en:
+  layouts:
+    partials:
+      sidebar:
+        manage_companies: Manage companies
+        companies: Companies
+        create_company: Create company
+        manage_logisticians: Manage logisticians
+        logisticians: Logisticians
+        create_logistician: Create logistician
+        manage_trailers: Manage trailers
+        trailers: Trailers
+        create_trailer: Create trailer
+        account_settings: Account settings
+        sign_out: Sign out

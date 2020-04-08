@@ -1,0 +1,8 @@
+en:
+  master_admins:
+    access_permissions:
+      not_found: Permission could not be found!
+      create:
+        success: Permission has been created
+      update:
+        success: Permission has been updated

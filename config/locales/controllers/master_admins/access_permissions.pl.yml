@@ -1,0 +1,8 @@
+pl:
+  master_admins:
+    access_permissions:
+      not_found: Uprawnienie nie mogło zostać odnalezione!
+      create:
+        success: Utworzono uprawnienie
+      update:
+        success: Zaktualizowano uprawnienie

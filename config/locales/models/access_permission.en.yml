@@ -1,0 +1,14 @@
+en:
+  activerecord:
+    attributes:
+      trailer_access_permission:
+        alarm_control: Alarm control
+        system_arm_control: System arm control
+        load_in_mode_control: Load in mode control
+        photo_download: Photo download
+        video_download: Video download
+        monitoring_access: Monitoring access
+        current_position: Current position
+        route_access: Route access
+        sensor_access: Sensor
+        event_log_access: Event log

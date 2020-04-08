@@ -1,0 +1,7 @@
+description: Resource not found
+content:
+  application/vnd.api+json:
+    schema:
+      properties:
+        errors:
+          $ref: ../components.yml#/components/schemas/Errors

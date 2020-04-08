@@ -1,0 +1,629 @@
+components:
+  parameters:
+    pageNumberParam:
+      in: query
+      name: page[number]
+      description: Page number to paginate
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+    pageSizeParam:
+      in: query
+      name: page[size]
+      description: Maximum amount of records to paginate per page
+      required: false
+      schema:
+        type: integer
+  schemas:
+    RouteLog:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Database ID of the record
+        type:
+          type: string
+          description: Database type of the record
+        attributes:
+          type: object
+          description: Object containing record's attributes
+          properties:
+            longitude:
+              type: string
+              description: Longitude
+            latitude:
+              type: string
+              description: Latitude
+            location_name:
+              type: string
+              description: Location definition, most typically written "[city], [state], [country]". Might be missing either `city` or `state` value
+            sent_at:
+              type: string
+              description: Date of position update. ISO8601 formatted. Optional.
+              format: date-time
+            speed:
+              type: decimal
+              description: Speed
+    Logistician:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Database ID of the record
+        type:
+          type: string
+          description: Database type of the record
+        attributes:
+          type: object
+          description: Object containing record's attributes
+          properties:
+            first_name:
+              type: string
+              description: Logistician's first name
+            last_name:
+              type: string
+              description: Logistician's last name
+            phone_number:
+              type: string
+              description: Logistician's phone number
+            preferred_locale:
+              type: string
+              enum: [pl, en, de]
+              description: Logistician's preferred locale
+        relationships:
+          type: object
+          description: Object containing simple information about record's relationships
+          properties:
+            trailer_access_permissions:
+              type: object
+              properties:
+                data:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+
+    Person:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Database ID of the record
+        type:
+          type: string
+          description: Database type of the record
+        attributes:
+          type: object
+          description: Object containing record's attributes
+          properties:
+            first_name:
+              type: string
+              description: Logistician's first name
+            last_name:
+              type: string
+              description: Logistician's last name
+            phone_number:
+              type: string
+              description: Logistician's phone number
+            extra_phone_number:
+              type: string
+              description: Logistician's extra phone number
+            email:
+              type: string
+              description: Logistician's email
+            avatar_url:
+              type: string
+              description: Logistician's avatar url
+            position:
+              type: string
+              enum: [logistician, driver, guest]
+              description: Position of the person
+
+    Trailer:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Database ID of the record
+        type:
+          type: string
+          description: Database type of the record
+        attributes:
+          type: object
+          description: Object containing record's attributes
+          properties:
+            device_serial_number:
+              type: string
+              description: Unique device serial number
+            registration_number:
+              type: string
+              description: Unique registration number
+            device_installed_at:
+              type: string
+              description: iso8601 formatted date indicating when device was installed
+              format: date-time
+            description:
+              type: string
+              description: General description
+            make:
+              type: string
+              enum: [wielton, schmitz, kogel, wabash, great_dane]
+              description: Trailer's make
+            model:
+              type: string
+              description: Trailer's model
+            engine_running:
+              type: boolean
+              description: Trailer's engine status last known
+            status:
+              type: string
+              enum: [start_loading, end_loading, alarm, alarm_silenced, alarm_off, armed, disarmed, warning, emergency_call, quiet_alarm, alarm_resolved, truck_disconnected, truck_connected, shutdown_pending, shutdown_immediate, truck_battery_low, truck_battery_normal, engine_off, engine_on, parking_on, parking_off]
+              description: Current status
+            spedition_company:
+              type: string
+              description: name of spedition company the trailer belongs to
+            transport_company:
+              type: string
+              description: name of transport_company company the trailer belongs to
+            current_position:
+              type: object
+              description: Current position data
+              properties:
+                longitude:
+                  type: string
+                  description: Longitude
+                latitude:
+                  type: string
+                  description: Latitude
+                location_name:
+                  type: string
+                  description: Location definition, most typically written "[city], [state], [country]". Might be missing either `city` or `state` value
+                sent_at:
+                  type: string
+                  description: Date of position update. ISO8601 formatted. Optional.
+                  format: date-time
+                speed:
+                  type: string
+                  description: Speed
+    TrailerEvent:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Database ID of the record
+        type:
+          type: string
+          description: Database type of the record
+        attributes:
+          type: object
+          description: Object containing record's attributes
+          properties:
+            kind:
+              enum: [start_loading, end_loading, alarm, alarm_silenced, alarm_off, armed, disarmed, warning, emergency_call, quiet_alarm, alarm_resolved, truck_disconnected, truck_connected, shutdown_pending, shutdown_immediate, truck_battery_low, truck_battery_normal, engine_off, engine_on, parking_on, parking_off]
+              type: string
+              description: Event kind.
+            triggered_at:
+              type: string
+              description: iso8601 formatted date indicating when the event was triggered
+              format: date-time
+            sensor_name:
+              type: string
+              description: Name of the sensor which caused the event to happen
+            uuid:
+              type: string
+              description: Unique identifier of the event
+            latitude:
+              type: string
+              description: Latitude of the event
+            longitude:
+              type: string
+              description: Longitude of the event
+        relationships:
+          type: object
+          description: Object containing simple information about record's relationships
+          properties:
+            trailer:
+              type: object
+              properties:
+                data:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+            trailer_sensor_reading:
+              type: object
+              properties:
+                data:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+            linked_event:
+              type: object
+              properties:
+                data:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+            logistician:
+              type: object
+              properties:
+                data:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+            route_log:
+              type: object
+              properties:
+                data:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+            interactions:
+              type: object
+              properties:
+                data:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+
+    Interaction:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Database ID of the record
+        type:
+          type: string
+          description: Database type of the record
+        attributes:
+          type: object
+          description: Object containing record's attributes
+          properties:
+            kind:
+              type: string
+              enum: [end_loading, alarm_silenced, alarm_resolved, disarmed]
+              description: Kind of interaction
+            triggered_at:
+              type: string
+              description: iso8601 formatted date; time at which the event has been triggered
+              format: date-time
+        relationships:
+          type: object
+          description: Object containing simple information about record's relationships
+          properties:
+            linked_event:
+              type: object
+              properties:
+                data:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+            logistician:
+              type: object
+              properties:
+                data:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+            trailer:
+              type: object
+              properties:
+                data:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+
+    TrailerMediaFile:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Database ID of the record
+        type:
+          type: string
+          description: Database type of the record
+        attributes:
+          type: object
+          description: Object containing record's attributes
+          properties:
+            url:
+              type: string
+              description: Url to a resource
+            kind:
+              type: string
+              enum: [photo, video]
+              description: Kind of media
+            camera:
+              type: string
+              enum: [interior, exterior, left_top, right_top, left_bottom, right_bottom]
+              description: camera name/identifier
+            requested_at:
+              type: string
+              description: iso8601 formatted date indicating when the media file was requested (if was requested)
+              format: date-time
+            requested_time:
+              type: string
+              description: iso8601 formatted date; time from which the photo/video should be fetched
+            taken_at:
+              type: string
+              description: iso8601 formatted date; time at which the photo/video was taken
+              format: date-time
+        relationships:
+          type: object
+          description: Object containing simple information about record's relationships
+          properties:
+            trailer:
+              type: object
+              properties:
+                data:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+            trailer_event:
+              type: object
+              properties:
+                data:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+            logistician:
+              type: object
+              properties:
+                data:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+    TrailerSensorSetting:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Database ID of the record
+        type:
+          type: string
+          description: Database type of the record
+        attributes:
+          type: object
+          description: Object containing record's attributes
+          properties:
+            alarm_primary_value:
+              type: integer
+              description: Percentage or total value (depends on sensor kind)
+            alarm_secondary_value:
+              type: integer
+              description: Percentage or total value (depends on sensor kind)
+            warning_primary_value:
+              type: integer
+              description: Percentage or total value (depends on sensor kind)
+            warning_secondary_value:
+              type: integer
+              description: Percentage or total value (depends on sensor kind)
+            send_sms:
+              type: boolean
+            send_email:
+              type: boolean
+            email_addresses:
+              type: array
+            phone_numbers:
+              type: array
+        relationships:
+          type: object
+          description: Object containing simple information about record's relationships
+          properties:
+            trailer_sensor:
+              type: object
+              properties:
+                data:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    type:
+                      type: string
+
+    TrailerSensorReading:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Database ID of the record
+        type:
+          type: string
+          description: Database type of the record
+        attributes:
+          type: object
+          description: Object containing record's attributes
+          properties:
+            original_value:
+              type: float
+              description: Original value which came from Banana device
+            value:
+              type: float
+              description: Formatted original value
+            value_percentage:
+              type: integer
+            status:
+              type: string
+              enum: [ok, warning, alarm]
+              description: Status of the reading
+            read_at:
+              type: string
+              description: iso8601 formatted date indicating when the reading was processed
+              format: date-time
+    TrailerAccessPermission:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Database ID of the record
+        type:
+          type: string
+          description: Database type of the record
+        attributes:
+          type: object
+          description: Object containing record's attributes
+          properties:
+            sensor_access:
+              type: boolean
+            event_log_access:
+              type: boolean
+            alarm_control:
+              type: boolean
+            alarm_resolve_control:
+              type: boolean
+            system_arm_control:
+              type: boolean
+            load_in_mode_control:
+              type: boolean
+            photo_download:
+              type: boolean
+            video_download:
+              type: boolean
+            monitoring_access:
+              type: boolean
+            current_position:
+              type: boolean
+            route_access:
+              type: boolean
+
+    TrailerAccessPermissions:
+      type: array
+      items:
+        $ref: '#/components/schemas/TrailerAccessPermission'
+
+    TrailerMediaFiles:
+      type: array
+      items:
+        $ref: '#/components/schemas/TrailerMediaFile'
+    Auth:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Database ID of the record
+        type:
+          type: string
+        attributes:
+          type: object
+          properties:
+            email:
+              type: string
+              description: Email address
+        relationships:
+          type: object
+          description: Object containing simple information about record's relationships
+          properties:
+            logistician:
+              type: object
+              properties:
+                data:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+
+    TrailerSensor:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Database ID of the record
+        type:
+          type: string
+        attributes:
+          type: object
+          properties:
+            status:
+              type: string
+            value_percentage:
+              type: integer
+            value:
+              type: float
+            kind:
+              type: string
+              enum: [data_transfer, safeway_battery, trailer_temperature, driver_panel_battery, co2, truck_battery]
+              description: Sensor's kind
+            latest_read_at:
+              type: string
+              description: iso8601 formatted date indicating when last reading has been processed
+              format: date-time
+            average_value:
+              type: float
+              description: Average value since 24 hours
+            created_at:
+              type: string
+              description: iso8601 formatted date indicating when data was read
+              format: date-time
+        relationships:
+          type: object
+          description: Object containing simple information about record's relationships
+          properties:
+            setting:
+              type: object
+              properties:
+                data:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    type:
+                      type: string
+
+    TrailerSensors:
+      type: array
+      items:
+        $ref: '#/components/schemas/TrailerSensor'
+    Trailers:
+      type: array
+      items:
+        $ref: '#/components/schemas/Trailer'
+    TrailerEvents:
+      type: array
+      items:
+        $ref: '#/components/schemas/TrailerEvent'
+    RouteLogs:
+      type: array
+      items:
+        $ref: '#/components/schemas/RouteLog'
+    Logisticians:
+      type: array
+      items:
+        $ref: '#/components/schemas/Logistician'
+    People:
+      type: array
+      items:
+        $ref: '#/components/schemas/Person'
+    Errors:
+      type: array
+      description: Array containing details about occured error(s)
+      items:
+        type: object
+        properties:
+          detail:
+            type: string
+            description: Message about occurred problem
+          source:
+            type: object
+            description: Source of the problem
+            properties:
+              pointer:
+                type: string
+          status:
+            type: string
+            description: HTTP Status associated with the problem

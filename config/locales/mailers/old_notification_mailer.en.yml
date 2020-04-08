@@ -1,0 +1,6 @@
+en:
+  old_notification_mailer:
+    sensor_alert:
+      subject: Warning regarding trailer %{number}, %{description}
+      header: 'The indicated limit value has been exceeded.'
+      content: 'Current status of %{sensor}: %{value}, currently allowed treshold: %{treshold}.'

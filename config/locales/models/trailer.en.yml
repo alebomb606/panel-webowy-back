@@ -1,0 +1,12 @@
+en:
+  activerecord:
+    attributes:
+      trailer:
+        device_serial_number: Device serial number
+        registration_number: Registration number
+        phone_number: Phone number
+        make: Make
+        model: Model
+        description: Description
+        device_installed_at: Device installed at
+        company: Company

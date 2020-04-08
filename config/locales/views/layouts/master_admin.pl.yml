@@ -1,0 +1,18 @@
+pl:
+  layouts:
+    partials:
+      sidebar:
+        manage_companies: Zarządzaj firmami
+        companies: Firmy
+        create_company: Utwórz firmę
+        manage_logisticians: Zarządzaj logistykami
+        logisticians: Logistycy
+        manage_drivers: Zarządzaj kierowcami
+        create_driver: Utwórz kierowcę
+        create_logistician: Utwórz logistyka
+        manage_trailers: Zarządzaj naczepami
+        drivers: Kierowcy
+        trailers: Naczepy
+        create_trailer: Utwórz naczepę
+        account_settings: Ustawienia konta
+        sign_out: Wyloguj

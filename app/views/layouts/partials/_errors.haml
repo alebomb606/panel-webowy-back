@@ -1,0 +1,5 @@
+- if @errors
+  .notification.is-danger
+    %ul
+      - formatted_errors(@errors).each do |msg|
+        %li= msg

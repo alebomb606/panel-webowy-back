@@ -1,0 +1,31 @@
+.is-two-fifths
+  %aside.menu.navbar-border
+    %ul.menu-list
+      %li
+        %b= t('.manage_companies')
+        %ul
+          %li= link_to t('.companies'), admin_companies_path
+          %li= link_to t('.create_company'), new_admin_company_path
+
+      %li
+        %b= t('.manage_logisticians')
+        %ul
+          %li= link_to t('.logisticians'), admin_logisticians_path
+          %li= link_to t('.create_logistician'), new_admin_logistician_path
+
+      %li
+        %b= t('.manage_trailers')
+        %ul
+          %li= link_to t('.trailers'), admin_trailers_path
+          %li= link_to t('.create_trailer'), new_admin_trailer_path
+
+      %li
+        %b= t('.manage_drivers')
+        %ul
+          %li= link_to t('.drivers'), admin_drivers_path
+          %li= link_to t('.create_driver'), new_admin_driver_path
+
+      %li
+        %b= t('.account_settings')
+        %ul
+          %li= link_to t('.sign_out'), destroy_auth_session_path, method: :delete

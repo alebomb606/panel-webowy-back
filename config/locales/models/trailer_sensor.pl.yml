@@ -1,0 +1,10 @@
+pl:
+  activerecord:
+    attributes:
+      trailer_sensor:
+        kinds:
+          data_transfer: Transfer danych
+          safeway_battery: Bateria Safeway
+          trailer_temperature: Temperatura naczepy
+          drtiver_panel_battery: Bateria panelu kierowcy
+          co2: CO2

@@ -1,0 +1,13 @@
+pl:
+  master_admins:
+    trailer_cameras:
+      back: Powrót do listy naczep
+      not_found: Nie znaleziono kamery
+      enabled: Potwierdziłeś instalację kamery
+      disabled: Potwierdziłeś wyłączenie kamery
+      title: Kamery
+      index:
+        camera_type: Typ kamery
+        installed_at: Data zainstalowania
+        enable: Włącz
+        disable: Wyłącz

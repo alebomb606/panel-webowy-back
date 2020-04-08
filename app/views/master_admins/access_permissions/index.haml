@@ -1,0 +1,68 @@
+%section.section
+  %h1.title= t('master_admins.access_permissions.title')
+  %h2.subtitle
+    #{t('.company')}: #{trailer.company}
+  %p
+    #{t('.device_serial_number')}: #{trailer.device_serial_number}
+  %p
+    #{t('.registration_number')}: #{trailer.registration_number}
+  %p
+    #{t('.phone_number')}: #{trailer.phone_number}
+
+
+%section.section
+  %table.table.is-hoverable.admin-permissions-table
+    %thead
+      %th= t('.logistician')
+      %th= t('.sensor_access')
+      %th= t('.event_log_access')
+      %th= t('.alarm_control')
+      %th= t('.alarm_resolve_control')
+      %th= t('.system_arm_control')
+      %th= t('.load_in_mode_control')
+      %th= t('.photo_download')
+      %th= t('.video_download')
+      %th= t('.monitoring_access')
+      %th= t('.current_position')
+      %th= t('.route_access')
+      %th
+    %tbody
+      - permissions.each do |permission|
+        %tr
+          %td= permission.logistician.person.first_name
+          %td
+            %span
+              %i{ class: check_icon_class(permission.sensor_access) }
+          %td
+            %span
+              %i{ class: check_icon_class(permission.event_log_access) }
+          %td
+            %span
+              %i{ class: check_icon_class(permission.alarm_control) }
+          %td
+            %span
+              %i{ class: check_icon_class(permission.alarm_resolve_control) }
+          %td
+            %span
+              %i{ class: check_icon_class(permission.system_arm_control) }
+          %td
+            %span
+              %i{ class: check_icon_class(permission.load_in_mode_control) }
+          %td
+            %span
+              %i{ class: check_icon_class(permission.photo_download) }
+          %td
+            %span
+              %i{ class: check_icon_class(permission.video_download) }
+          %td
+            %span
+              %i{ class: check_icon_class(permission.monitoring_access) }
+          %td
+            %span
+              %i{ class: check_icon_class(permission.current_position) }
+          %td
+            %span
+              %i{ class: check_icon_class(permission.route_access) }
+          %td
+            = link_to t('.edit'),
+              edit_admin_access_permission_path(id: permission.id, logistician_id: permission.logistician.id)

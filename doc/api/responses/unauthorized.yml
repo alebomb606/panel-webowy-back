@@ -1,0 +1,7 @@
+description: Not authorized
+content:
+  application/json:
+    schema:
+      properties:
+        errors:
+          $ref: ../components.yml#/components/schemas/Errors

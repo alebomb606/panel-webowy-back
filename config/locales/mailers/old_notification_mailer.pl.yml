@@ -1,0 +1,6 @@
+pl:
+  old_notification_mailer:
+    sensor_alert:
+      subject: Ostrzeżenie dotyczące naczepy %{number}, %{description}
+      header: 'Wskazana wartość graniczna została przekroczona.'
+      content: 'Obecny stan czujnika %{sensor}: %{value}, obecnie dozwolony zakres to: %{treshold}.'

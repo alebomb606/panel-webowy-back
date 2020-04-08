@@ -1,0 +1,21 @@
+pl:
+  activerecord:
+    attributes:
+      plan:
+        features: Opcje
+        kind: Pakiet
+        all_features:          
+          intelligent_sensors: Inteligentne czujniki
+          current_position: Aktualna pozycja
+          event_log: Dziennik zdarzeń
+          interior_camera: Wewnętrzna kamera
+          telemetry: Centralka telemetryczna
+          fuel_tanks_sensors: Czujniki zbiornika paliwa
+          back_camera: Tylna kamera
+          rear_door_opening_sensor: Czujnik otwarcia drzwi tylnych
+          basic_loading_control: Podstawowa kontrola obciążenia
+          advanced_loading_control: Zaawansowana kontrola obciążenia
+          top_left_camera: Lewa górna kamera
+          top_right_camera: Prawa górna kamera
+          bottom_right_camera: Prawa dolna kamera
+          bottom_left_camera: Lewa dolna kamera

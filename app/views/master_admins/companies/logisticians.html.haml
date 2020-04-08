@@ -1,0 +1,22 @@
+%section.section
+  %h1.title
+    #{t('.logisticians')} - #{company.name}
+
+  %table.table.is-hoverable
+    %thead
+      %th= t('.email')
+      %th= t('.name')
+      %th
+      %th
+      %th
+    %tbody
+      - logisticians.each do |logistician|
+        %tr
+          %td= logistician.email
+          %td= logistician.full_name
+          %td= link_to t('form.edit'), edit_admin_logistician_path(logistician.id)
+          %td= link_to t('form.show'), admin_logistician_path(logistician.id)
+          %td= link_to t('form.delete'),
+            admin_logistician_path(logistician.id),
+            method: :delete,
+            data: { confirm: t('form.confirm') }

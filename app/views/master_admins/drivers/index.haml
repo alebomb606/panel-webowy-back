@@ -1,0 +1,24 @@
+%section.section
+  %h1.title= t('.drivers')
+
+  %table.table.is-hoverable
+    %thead
+      %th= t('.name')
+      %th= t('.email')
+      %th= t('.phone_number')
+      %th= t('.company')
+      %th
+      %th
+      %th
+    %tbody
+      - drivers.each do |driver|
+        %tr
+          %td "#{driver.person.first_name} #{driver.person.last_name}"
+          %td= driver.person.email
+          %td= driver.person.phone_number
+          %td= driver.person.company.name
+          %td= link_to t('form.edit'), edit_admin_driver_path(driver)
+          %td= link_to t('form.delete'),
+            admin_driver_path(driver),
+            method: :delete,
+            data: { confirm: t('form.confirm') }

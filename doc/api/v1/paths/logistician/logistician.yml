@@ -1,0 +1,5 @@
+Logistician:
+  get:
+    $ref: ./show.yml
+  patch:
+    $ref: ./update.yml

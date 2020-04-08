@@ -1,0 +1,21 @@
+!!!
+%html
+  %head
+    %title SafewayBackend
+    %meta{ name: 'viewport', content: 'width=device-width, initial-scale=1' }
+    %script{ defer: true, src: 'https://use.fontawesome.com/releases/v5.3.1/js/all.js' }
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+  %body
+    .columns.columns-container
+      = render 'layouts/partials/sidebar'
+      .columns.is-multiline.columns-container
+        .is-10
+          .container-fuid
+            = render 'layouts/partials/flash'
+            = render 'layouts/partials/errors'
+            = yield
+

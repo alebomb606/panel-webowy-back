@@ -1,0 +1,31 @@
+%table.table.is-hoverable
+  %thead
+    %th= t('.device_serial_number')
+    %th= t('.registration_number')
+    %th= t('.phone_number')
+    %th= t('.make')
+    %th= t('.model')
+    %th= t('.description')
+    %th= t('.installed_at')
+    %th= t('.company')
+    %th= t('.spedition_company')
+    %th= t('.transport_company')
+    %th= t('.banana_pi_token')
+    %th
+    %th
+    %th
+  %tbody
+    - trailers.each do |trailer|
+      %tr
+        %td= trailer.device_serial_number
+        %td= trailer.registration_number
+        %td= trailer.phone_number
+        %td= trailer.make
+        %td= trailer.model
+        %td= trailer.description
+        %td= trailer.device_installed_at.strftime('%D')
+        %td= trailer.company
+        %td= trailer.spedition_company
+        %td= trailer.transport_company
+        %td= trailer.banana_pi_token
+        = yield(trailer)

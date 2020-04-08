@@ -1,0 +1,101 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require bulma.min.css
+ *= require_tree .
+ *= require_self
+ */
+
+.columns-container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-top: 0px;
+}
+
+.is-10 {
+  padding-top: 30px;
+  padding-left: 30px;
+}
+
+.section {
+  padding: 0 20px 0 0;
+}
+
+.is-two-fifths {
+  min-width: 190px;
+  background-color: #fafafa;
+}
+
+.navbar-border {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  min-height: 100vh;
+  border-right: 1px solid grey;
+  padding-top: 30px;
+}
+
+.menu-list a {
+  border: 0;
+  padding: 2px;
+}
+
+.menu-list li ul {
+  border: 0;
+  padding: 0;
+  margin: 5px;
+}
+
+.menu-list {
+  margin-left: 5px;
+}
+
+.admin-dropdown {
+  margin-right: 10px;
+}
+
+.translation_missing {
+  font-size: 14px;
+  color: red;
+  font-family: Times;
+  text-transform: uppercase;
+}
+
+.admin-permissions-table .fa-check {
+  color: #32c53b;
+}
+
+.admin-permissions-table .fa-times {
+  color: #c7c7c7;
+}
+
+.admin-checkbox {
+  margin-right: 5px;
+}
+
+.admin-label {
+  display: inline-block;
+}
+
+.table-overflow-y {
+  overflow-y: scroll;
+}
+
+.table td, .table th {
+  padding: .5em .25em
+}
+
+.table {
+  font-size: 14px;
+}

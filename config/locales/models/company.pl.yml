@@ -1,0 +1,10 @@
+pl:
+  activerecord:
+    attributes:
+      company:
+        name: Nazwa
+        street: Ulica
+        postal_code: Kod pocztowy
+        nip: NIP
+        city: Miasto
+        email: E-mail

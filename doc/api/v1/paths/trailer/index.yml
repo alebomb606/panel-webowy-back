@@ -1,0 +1,20 @@
+get:
+  operationId: getTrailers
+  summary: List all trailers
+  tags:
+    - trailers
+  parameters:
+    - $ref: '../../../components.yml#/components/parameters/pageNumberParam'
+    - $ref: '../../../components.yml#/components/parameters/pageSizeParam'
+  responses:
+    200:
+      description: List of trailers
+      content:
+        application/vnd.api+json:
+          schema:
+            properties:
+              data:
+                $ref: '../../../components.yml#/components/schemas/Trailers'
+
+    401:
+      $ref: '../../../responses/unauthorized.yml'

@@ -1,0 +1,19 @@
+pl:
+  master_admins:
+    companies:
+      form:
+        new_header: Utwórz firmę
+        edit_header: Edytuj firmę
+        header: Firma
+      index:
+        company: Firma
+        companies: Firmy
+        logisticians: Logistycy
+        name: Nazwa firmy
+        address: Adres
+        email: E-mail
+        nip: NIP
+      logisticians:
+        logisticians: Logistycy
+        email: E-mail
+        name: Imię

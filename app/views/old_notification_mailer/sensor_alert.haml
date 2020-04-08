@@ -1,0 +1,4 @@
+%h4= t('.header')
+%p
+  = t('.content', treshold: @sensor.setting.warning_treshold_text, sensor: @sensor.translated_kind,
+  value: @reading.value_text)

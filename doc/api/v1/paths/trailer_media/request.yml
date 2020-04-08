@@ -1,0 +1,69 @@
+post:
+  operationId: requestTrailerMedia
+  summary: Request a photo/video from specific trailer
+  tags:
+    - trailer_media
+  parameters:
+    - in: path
+      name: id
+      description: ID of trailer
+      required: true
+      schema:
+        type: integer
+        format: int64
+  requestBody:
+    content:
+      application/vnd.api+json:
+        schema:
+          type: object
+          properties:
+            data:
+              type: object
+              properties:
+                id:
+                  type: string
+                type:
+                  type: string
+                attributes:
+                  type: object
+                  properties:
+                    requested_time:
+                      type: string
+                      description: iso8601 formatted date
+                      format: date-time
+                    kind:
+                      type: string
+                      enum: [photo, video]
+                    camera:
+                      type: string
+                      enum: [interior, exterior, left_top, right_top, left_bottom, right_bottom]
+                  required:
+                    - requested_time
+                    - kind
+                    - camera
+  responses:
+    201:
+      description: Freshly created TrailerMediaFile
+      content:
+        application/vnd.api+json:
+          schema:
+            properties:
+              data:
+                $ref: '../../../components.yml#/components/schemas/TrailerMediaFile'
+              included:
+                type: array
+                items:
+                  oneOf:
+                    - $ref: ../../../components.yml#/components/schemas/Trailer
+                    - $ref: ../../../components.yml#/components/schemas/TrailerEvent
+                    - $ref: ../../../components.yml#/components/schemas/Logistician
+                    - $ref: ../../../components.yml#/components/schemas/RouteLog
+
+    401:
+      $ref: '../../../responses/unauthorized.yml'
+    403:
+      description: Forbidden
+    404:
+      $ref: ../../../responses/not_found.yml
+    422:
+      $ref: ../../../responses/unprocessable_entity.yml

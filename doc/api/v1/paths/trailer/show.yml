@@ -1,0 +1,26 @@
+get:
+  operationId: findTrailer
+  summary: Find specific trailer
+  tags:
+    - trailers
+  parameters:
+    - name: id
+      in: path
+      description: ID of trailer to fetch
+      required: true
+      schema:
+        type: integer
+        format: int64
+  responses:
+    200:
+      description: Specific trailer
+      content:
+        application/vnd.api+json:
+          schema:
+            properties:
+              data:
+                $ref: ../../../components.yml#/components/schemas/Trailers
+    401:
+      $ref: ../../../responses/unauthorized.yml
+    404:
+      $ref: ../../../responses/not_found.yml

@@ -1,0 +1,44 @@
+patch:
+  operationId: readTrailerStatus
+  summary: Read status of specific trailer
+  tags:
+    - trailers
+  parameters:
+    - name: id
+      in: path
+      description: ID of trailer to fetch
+      required: true
+      schema:
+        type: integer
+        format: int64
+  requestBody:
+    content:
+      application/vnd.api+json:
+        schema:
+          type: object
+          properties:
+            data:
+              type: object
+              properties:
+                type:
+                  type: string
+                id:
+                  type: string
+
+  responses:
+    200:
+      description: Read trailer
+      content:
+        application/vnd.api+json:
+          schema:
+            properties:
+              data:
+                $ref: ../../../components.yml#/components/schemas/Trailer
+    401:
+      $ref: ../../../responses/unauthorized.yml
+    403:
+      description: Forbidden
+    404:
+      $ref: ../../../responses/not_found.yml
+    422:
+      $ref: ../../../responses/unprocessable_entity.yml

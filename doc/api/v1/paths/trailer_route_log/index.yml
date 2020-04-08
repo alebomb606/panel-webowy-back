@@ -1,0 +1,46 @@
+get:
+  operationId: getTrailerRouteLog
+  summary: Fetch specific trailer's route log
+  tags:
+    - trailers
+  parameters:
+    - name: id
+      in: path
+      description: ID of trailer which route logs we want to fetch
+      required: true
+      schema:
+        type: integer
+        format: int64
+    - in: query
+      name: filter[date_from]
+      required: false
+      description: iso8601 formatted datetime string
+      schema:
+        format: date-time
+        type: string
+        default: 7 days ago
+    - in: query
+      name: filter[date_to]
+      required: false
+      description: iso8601 formatted datetime string
+      schema:
+        type: string
+        format: date-time
+        default: now
+  responses:
+    200:
+      description: Route logs
+      content:
+        application/vnd.api+json:
+          schema:
+            properties:
+              data:
+                $ref: ../../../components.yml#/components/schemas/RouteLogs
+    304:
+      description: Not changed
+    401:
+      $ref: ../../../responses/unauthorized.yml
+    404:
+      $ref: ../../../responses/not_found.yml
+    422:
+      $ref: ../../../responses/unprocessable_entity.yml

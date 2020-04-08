@@ -1,0 +1,71 @@
+= f.hidden_field :logistician_id, value: logistician_id
+
+.field
+  .control
+    = f.label :sensor_access, class: 'admin-label label' do
+      = f.check_box :sensor_access, {}, 'true', 'false'
+      = f.label :sensor_access
+
+.field
+  .control
+    = f.label :alarm_control, class: 'admin-label label' do
+      = f.check_box :alarm_control, {}, 'true', 'false'
+      = f.label :alarm_control
+
+.field
+  .control
+    = f.label :alarm_resolve_control, class: 'admin-label label' do
+      = f.check_box :alarm_resolve_control, {}, 'true', 'false'
+      = f.label :alarm_resolve_control
+
+.field
+  .control
+    = f.label :system_arm_control, class: 'admin-label label' do
+      = f.check_box :system_arm_control, {}, 'true', 'false'
+      = f.label :system_arm_control
+
+.field
+  .control
+    = f.label :load_in_mode_control, class: 'admin-label label' do
+      = f.check_box :load_in_mode_control, {}, 'true', 'false'
+      = f.label :load_in_mode_control
+
+.field
+  .control
+    = f.label :photo_download, class: 'admin-label label' do
+      = f.check_box :photo_download, {}, 'true', 'false'
+      = f.label :photo_download
+
+.field
+  .control
+    = f.label :video_download, class: 'admin-label label' do
+      = f.check_box :video_download, {}, 'true', 'false'
+      = f.label :video_download
+
+.field
+  .control
+    = f.label :monitoring_access, class: 'admin-label label' do
+      = f.check_box :monitoring_access, {}, 'true', 'false'
+      = f.label :monitoring_access
+
+.field
+  .control
+    = f.label :current_position, class: 'admin-label label' do
+      = f.check_box :current_position, {}, 'true', 'false'
+      = f.label :current_position
+
+.field
+  .control
+    = f.label :route_access, class: 'admin-label label' do
+      = f.check_box :route_access, {}, 'true', 'false'
+      = f.label :route_access
+
+.field
+  .control
+    = f.label :event_log_access, class: 'admin-label label' do
+      = f.check_box :event_log_access, {}, 'true', 'false'
+      = f.label :event_log_access
+
+.field
+  .control
+    = f.submit submit_text, class: 'button is-primary'

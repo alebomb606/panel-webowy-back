@@ -1,0 +1,43 @@
+en:
+  errors:
+    not_connected: Not connected
+    unauthorized: Not authorized
+    unique?: must be unique
+    email?: is not a valid email
+    valid_permission?: is not a valid permission
+    valid_password?: is not valid
+    latitude?: must be between -90.0 and 90.0
+    longitude?: must be between -180.0 and 180.0
+    speed?: must be positive
+    not_found: Resource '%{resource}' could not be found
+    bad_credentials: Invalid login credentials.
+    from_before_to?: date_from must appear earlier than date_to
+    phone_number?: 'should contain following elements: [+][country code][phone number]'
+    attributes:
+      nip: NIP
+      first_name: First name
+      last_name: Last name
+      phone_number: Phone number
+      city: City
+      postal_code: Postal code
+      email: E-mail
+      latitude: Latitude
+      longitude: Longitude
+      speed: Speed
+  form:
+    show: Show
+    edit: Edit
+    create: Create
+    update: Update
+    delete: Delete
+    confirm: Are you sure?
+    submit: Submit
+  links:
+    root: Home page
+  trailer_sensor_reading:
+    notifier:
+      sms_body: 'Warning regarding trailer %{number}, %{description}. The indicated limit value has been exceeded. Current status of %{sensor}: %{value}, currently allowed treshold: %{treshold}.'
+  languages:
+    pl: polish
+    en: english
+    de: german

@@ -1,0 +1,79 @@
+%section.section
+  %h1.title
+    = yield
+
+  = form_for [:admin, trailer] do |f|
+    .field
+      = f.label :device_serial_number, class: 'label'
+      .control
+        = f.text_field :device_serial_number, class: 'input'
+    .field
+      = f.label :registration_number, class: 'label'
+      .control
+        = f.text_field :registration_number, class: 'input'
+    .field
+      = f.label :phone_number, class: 'label'
+      .control
+        = f.text_field :phone_number, class: 'input'
+    .field
+      = f.label :banana_pi_token, class: 'label'
+      .control
+        = f.text_field :banana_pi_token, class: 'input'
+    .field
+      = f.label :spedition_company, class: 'label'
+      .control
+        = f.text_field :spedition_company, class: 'input'
+    .field
+      = f.label :transport_company, class: 'label'
+      .control
+        = f.text_field :transport_company, class: 'input'
+    .field
+      = f.label :make, class: 'label'
+      .control
+        .select
+          = f.select :make, makes
+    .field
+      = f.label :model, class: 'label'
+      .control
+        = f.text_field :model, class: 'input'
+    .field
+      = f.label :description, class: 'label'
+      .control
+        = f.text_area :description, class: 'textarea'
+    .field
+      = f.label :device_installed_at, class: 'label'
+      .control
+        = f.date_field :device_installed_at, class: 'input'
+    .field
+      = f.label :company, class: 'label'
+      .control
+        .select
+          = f.select :company_id, companies
+
+    = f.fields_for :plan, trailer.plan do |pf|
+      .field
+        = pf.label :kind, class: 'label'
+        .control.select
+          = pf.select :kind,
+            options_for_select(plan_kinds, selected: trailer.plan.kind),
+            {},
+            class: 'input js-feature-kind'
+      .field
+        = pf.label :features, class: 'label'
+        .control
+          .js-plan-features{ data: { fundamental: Plan.features_for('fundamental'),
+            expanded: Plan.features_for('expanded'),
+            complete: Plan.features_for('complete'),
+            premium: Plan.features_for('premium') } }
+          = pf.collection_check_boxes :selected_features, trailer.plan.features_for_select_box, :value, :text do |b|
+            .control
+              = b.label(class: 'admin-label label checkbox') do
+                = b.check_box(class: 'control js-feature-check admin-checkbox', checked: b.object.state) + b.text
+
+    .field
+      .control
+        = f.submit t('form.submit'), class: 'button is-primary'
+
+
+:javascript
+  $(() => window.admin.trailers.form.init())

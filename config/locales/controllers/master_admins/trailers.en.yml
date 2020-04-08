@@ -1,0 +1,10 @@
+en:
+  master_admins:
+    trailers:
+      not_found: Trailer could not be found!
+      create:
+        success: Trailer has been created
+      update:
+        success: Trailer has been updated
+      destroy:
+        success: Trailer has been archived

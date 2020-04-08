@@ -1,0 +1,21 @@
+%section.section
+  %h1.title= t('master_admins.trailer_cameras.title')
+  %p
+    = link_to t('master_admins.trailer_cameras.back'), admin_trailers_path
+
+%section.section
+  %table.table.is-hoverable.admin-permissions-table
+    %thead
+      %th= t('.camera_type')
+      %th= t('.installed_at')
+      %th
+    %tbody
+      - cameras.each do |camera|
+        %tr
+          %td= camera.camera_type
+          %td= camera.installed_at? ? (I18n.l camera.installed_at, format: '%Y-%m-%d') : '-'
+          %td
+            - if camera.installed_at?
+              = link_to t('.disable'), admin_camera_disable_path(camera.id), method: :patch
+            - else
+              = link_to t('.enable'), admin_camera_enable_path(camera.id), method: :patch

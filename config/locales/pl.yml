@@ -1,0 +1,116 @@
+pl:
+  activerecord:
+    errors:
+      messages:
+        record_invalid: Zapis nie powiódł się
+  errors:
+    not_connected: Brak połączenia
+    unauthorized: Brak autoryzacji
+    unique?: musi być unikalny
+    email?: nie jest poprawny
+    latitude?: musi zawierać się pomiędzy -90.0 i 90.0
+    longitude?: musi zawierać się pomiędzy -180.0 i 180.0
+    speed?: musi być dodatnia
+    not_found: Zasób '%{resource}' nie został odnaleziony
+    bad_credentials: Nieprawidłowe dane logowania.
+    from_before_to?: date_from musi występować wcześniej niż date_to
+    phone_number?: 'powinien zawierać następujące elementy: [+][krajowy numer kierunkowy][numer telefonu]'
+    valid_password?: nie jest prawidłowe
+    or: lub
+    array?: musi być tablicą
+    empty?: musi być puste
+    excludes?: nie może zawierać %{value}
+    excluded_from?:
+      arg:
+        default: 'nie może być jednym z: %{list}'
+        range: 'nie może być jednym z: %{list_left} - %{list_right}'
+    size?:
+      value:
+        string:
+          arg:
+            range: musi zawierać od %{size_left} do %{size_right} znaków
+    exclusion?: 'nie może być jednym z: %{list}'
+    eql?: musi być równe %{left}
+    not_eql?: nie może być równe %{left}
+    filled?: musi być wypełnione
+    format?: jest w nieprawidłowym formacie
+    number?: musi być liczbą
+    odd?: musi być nieparzysta
+    even?: musi być parzysta
+    gt?: musi być wiekszę niż %{num}
+    gteq?: musi być większe lub równe %{num}
+    hash?: musi być typu 'hash'
+    bool?: musi być typu 'boolean'
+    true?: musi być prawdą
+    false?: musi być fałszem
+    int?: musi być liczbą całkowitą
+    float?: musi być liczbą zmiennoprzecinkową
+    decimal?: musi być liczbą dziesiętną
+    date?: musi być w formacie 'date'
+    date_time?: musi być w formacie 'datetime'
+    time?: musi być w formacie 'time'
+    key?: nie został odnaleziony
+    attr?: nie został odnaleziony
+    lt?: musi być mniejsze niż %{num}
+    lteq?: musi być mniejsze lub równe %{num}
+    max_size?: rozmiar nie może być większy niż %{num}
+    min_size?: rozmiar nie może być mniejszy niż %{num}
+    none?: nie może zostać zdefiniowane
+    str?: musi być tekstem
+    type?: musi być typu %{type}
+    included_in?:
+      arg:
+        default: 'musi być jednym z: %{list}'
+        range: 'musi być jednym z: %{list_left} - %{list_right}'
+    attributes:
+      nip: NIP
+      first_name: Imię
+      last_name: Nazwisko
+      phone_number: Numer telefonu
+      extra_phone_number: Dodatkowy numer telefonu
+      city: Miasto
+      postal_code: Kod pocztowy
+      email: E-mail
+      latitude: Szerokość geograficzna
+      longitude: Długość geograficzna
+      speed: Prędkość
+      name: Imię
+      street: Ulica
+      device_serial_number: Numer seryjny urządzenia
+      registration_number: Numer rejestracyjny
+      banana_pi_token: Token websocket urządzenia
+      spedition_company: Firma spedycyjna
+      transport_company: Firma transportowa
+      make: Marka
+      model: Model
+      description: Opis
+      device_installed_at: Data instalacji
+      selected_features: Opcje
+      current_password: Hasło
+      password: Hasło
+      password_confirmation: Potwierdzenie hasła
+  form:
+    submit: Zatwierdź
+    show: Szczegóły
+    edit: Edycja
+    create: Utwórz
+    update: Aktualizuj
+    delete: Usuń
+    confirm: Czy jesteś pewien?
+  links:
+    root: Strona domowa
+  master_admins:
+    custom_routes:
+      new:
+        file: Plik
+        trailer: Naczepa
+        title: Zaimportuj plik GPX
+      create:
+        success: Pomyślnie zaimportowano plik
+  trailer_sensor_reading:
+    notifier:
+      sms_body: 'Ostrzeżenie dotyczące naczepy %{number}, %{description}. Wskazana wartość graniczna została przekroczona. Obecny stan czujnika %{sensor}: %{value}, obecnie dozwolony zakres to: %{treshold}.'
+  languages:
+    pl: polski
+    en: angielski
+    de: niemiecki
