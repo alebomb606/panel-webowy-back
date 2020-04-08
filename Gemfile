@@ -56,7 +56,7 @@ group :development do
   gem 'ed25519'
   gem 'letter_opener'
   gem 'listen',      '>= 3.0.5', '< 3.2'
-  gem 'puma',        '~> 3.12.0'
+  gem 'puma',        '~> 3.12.4'
   gem 'web-console', '>= 3.3.0'
 end
 
