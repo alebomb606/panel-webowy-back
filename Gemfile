@@ -5,7 +5,7 @@ ruby '2.6.5'
 
 gem 'api-pagination', '~> 4.8'
 gem 'bootsnap',       '>= 1.1.0', require: false
-gem 'carrierwave',    '~> 1.3.1'
+gem 'carrierwave',    '~> 1.3.2'
 gem 'carrierwave-base64', '~> 2.8'
 gem 'devise',         '~> 4.5'
 gem 'devise_token_auth', '~> 1.0.0'
