@@ -34,7 +34,7 @@ gem 'twilio-ruby',    '~> 5.21.2'
 gem 'uglifier',       '~> 4.1'
 
 group :development, :test do
-  gem 'better_errors',    '~> 2.4.0'
+  gem 'better_errors',    '~> 2.8.0'
   gem 'brakeman',         '~> 4.3'
   gem 'bullet',           '~> 5.9'
   gem 'bundle-audit',     '~> 0.1'
